@@ -277,7 +277,7 @@ SASS_PROCESSOR_INCLUDE_DIRS = (
 
 # FIXME update cripy-forms and remove this
 # hack to suppress many annoying warnings from crispy_forms
-# see sapl.temp_suppress_crispy_form_warnings
+# see saap.temp_suppress_crispy_form_warnings
 
 # suprime texto de ajuda default do django-filter
 FILTERS_HELP_TEXT_FILTER = False

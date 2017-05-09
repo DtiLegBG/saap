@@ -29,3 +29,4 @@ gunicorn==19.4.5
 python-social-auth
 git+git://github.com/interlegis/trml2pdf.git
 python-dateutil
+social-auth-app-django

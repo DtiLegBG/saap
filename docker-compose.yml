@@ -1,0 +1,21 @@
+saapdb:
+  image: postgres
+  environment:
+    POSTGRES_PASSWORD: saap
+    POSTGRES_USER: saap
+    POSTGRES_DB: saap
+    PGDATA : /var/lib/postgresql/data/
+  volumes:
+    - saapdb_data:/var/lib/postgresql/data/
+  ports:
+    - "5532:5432"
+saap:
+#  image: saap
+  build: . 
+  volumes:
+    - saap_data:/var/interlegis/saap/data
+    - saap_media:/var/interlegis/saap/media
+  links:
+    - saapdb
+  ports:
+    - "8001:8001"

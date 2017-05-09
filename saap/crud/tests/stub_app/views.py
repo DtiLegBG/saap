@@ -1,5 +1,5 @@
-from sapl.crud.base import Crud, CrudListView
-from sapl.crud.masterdetail import MasterDetailCrud
+from saap.crud.base import Crud, CrudListView
+from saap.crud.masterdetail import MasterDetailCrud
 
 from .models import City, Country
 
