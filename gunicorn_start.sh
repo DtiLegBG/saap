@@ -23,6 +23,15 @@ DJANGO_WSGI_MODULE=saap.wsgi                    # WSGI module name (*)
 
 echo "Starting $NAME as `whoami` on base dir $saap_DIR"
 
+# parameter can be passed to run without virtualenv 
+if [[ "$@" != "no-venv" ]]; then
+    # Activate the virtual environment
+    cd $DJANGODIR
+    source /var/interlegis/.virtualenvs/saap/bin/activate
+    export DJANGO_SETTINGS_MODULE=$DJANGO_SETTINGS_MODULE
+    export PYTHONPATH=$DJANGODIR:$PYTHONPATH
+fi
+
 # Create the run directory if it doesn't exist
 RUNDIR=$(dirname $SOCKFILE)
 test -d $RUNDIR || mkdir -p $RUNDIR

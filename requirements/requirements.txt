@@ -17,6 +17,7 @@ django-taggit==0.21.2
 django>=1.9,<1.10
 djangorestframework
 easy-thumbnails==2.3
+git+git://github.com/interlegis/trml2pdf.git
 libsass==0.11.0
 psycopg2==2.6.1
 python-decouple==3.0
@@ -27,6 +28,6 @@ unipath==1.1
 python-magic==0.4.10
 gunicorn==19.4.5
 python-social-auth
-git+git://github.com/interlegis/trml2pdf.git
 python-dateutil
 social-auth-app-django
+pyjwkest

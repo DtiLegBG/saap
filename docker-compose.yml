@@ -18,4 +18,4 @@ saap:
   links:
     - saapdb
   ports:
-    - "8001:8001"
+    - "80:80"
