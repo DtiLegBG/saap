@@ -51,23 +51,22 @@ create_env
 /bin/sh busy-wait.sh $DATABASE_URL
 
 python3 manage.py migrate
-python3 manage.py rebuild_index --noinput &
 
-#user_created=$(python3 create_admin.py 2>&1)
+user_created=$(python3 create_admin.py 2>&1)
 
-#cmd=$(echo $user_created | grep 'ADMIN_USER_EXISTS')
-#user_exists=$?
+cmd=$(echo $user_created | grep 'ADMIN_USER_EXISTS')
+user_exists=$?
 
-#cmd=$(echo $user_created | grep 'MISSING_ADMIN_PASSWORD')
-#lack_pwd=$?
+cmd=$(echo $user_created | grep 'MISSING_ADMIN_PASSWORD')
+lack_pwd=$?
 
-#if [ $user_exists -eq 0 ]; then
- #  echo "[SUPERUSER CREATION] User admin already exists. Not creating"
-#fi
+if [ $user_exists -eq 0 ]; then
+   echo "[SUPERUSER CREATION] User admin already exists. Not creating"
+fi
 
-#if [ $lack_pwd -eq 0 ]; then
-#  echo "[SUPERUSER] Environment variable $ADMIN_PASSWORD for superuser admin was not set. Leaving container"
-#fi
+if [ $lack_pwd -eq 0 ]; then
+  echo "[SUPERUSER] Environment variable $ADMIN_PASSWORD for superuser admin was not set. Leaving container"
+fi
 
 /bin/sh gunicorn_start.sh no-venv &
 /usr/sbin/nginx -g "daemon off;"
